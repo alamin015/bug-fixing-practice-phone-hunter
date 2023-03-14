@@ -6,13 +6,13 @@ const loadPhones = async(searchText, dataLimit,show) =>{
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     const res = await fetch(url);
     const data = await res.json();
-    console.log(searchText,dataLimit)
+    // console.log(searchText,dataLimit)
     displayPhones(data.data, dataLimit,show);
 }
 
 const displayPhones = (phones, dataLimit,show) =>{
     myTotalItems = phones.length;
-    console.log(mobileName,myTotalItems)
+    // console.log(mobileName,myTotalItems)
     const phonesContainer = document.getElementById('phones-container');
     // phonesContainer.textContent = '';
     // display 10 phones only 
@@ -61,13 +61,24 @@ const displayPhones = (phones, dataLimit,show) =>{
 }
 
 const processSearch = (dataLimit) =>{
-    toggleSpinner(true);
+   
     const searchField = document.getElementById('search-field');
-    const searchText = searchField.value ? searchField.value : "apple";
+    const searchText = searchField.value;
+    if(!searchText){
+        searchField.focus();
+        searchField.classList.add("border-danger");
+        searchField.style.boxShadow = "none";
+
+    }else {
+    searchField.classList.remove("border-danger");
+    toggleSpinner(true);
+
     mobileName = searchText;
 
     loadPhones(searchText, dataLimit);
     searchField.value = '';
+    }
+    
     
 }
 

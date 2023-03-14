@@ -15,14 +15,16 @@
     </header>
     <main class="container">
         <section>
-            <div class="mb-5 d-flex align-items-center">
-                <input style="width:75%;max-width:400px;" id="search-field" type="email" class="form-control" id="exampleFormControlInput1"
+            <div class="mb-4 d-flex align-items-center justify-content-md-start justify-content-center">
+                <input style="width:75%;max-width:400px;" id="search-field" type="email" class="form-control border" id="exampleFormControlInput1"
                     placeholder="search your phone">
                 <button id="btn-search" class="btn btn-primary ms-2">Search</button>
             </div>
         </section>
-        <!-- loader -->
 
+        <!--------------------------
+            loader
+        -----------------------  -->
 
            <section id="loader" class="d-none">
             <div style="height: 50vh;" class="d-flex justify-content-center align-items-center">
@@ -35,17 +37,17 @@
 
 
         <!-- display Search Result -->
-        <section>
+        <section class="py-4">
 
             <div id="phones-container" class="row row-cols-1 row-cols-md-3 g-4">
              
 
 
             </div>
-            <div id="no-found-message" class="mt-4 d-none">
+            <div id="no-found-message" class="my-4 d-none">
                 <h3 class="text-warning">No Phone Found. Please try a new search</h3>
             </div>
-            <div id="show-all" class="text-center d-none">
+            <div id="show-all" class=" my-4 text-center d-none">
                 <div id="btn-show-all" class="btn btn-primary">Show All</div>
             </div>
         </section>
